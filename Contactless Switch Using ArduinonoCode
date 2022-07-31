@@ -1,0 +1,55 @@
+
+
+const int ledPin=13;
+const int ldrPin=A0;
+#define r1 13
+int relay1 = LOW;
+
+int obstaclePin = 7;  // This is our input pin
+int hasObstacle = HIGH;
+
+void setup(){
+  Serial.begin(9600);
+  pinMode(ledPin,OUTPUT);
+  pinMode(ldrPin,INPUT);
+  
+}
+
+void loop(){
+  int idrStatus=analogRead(ldrPin);
+  if(idrStatus <=300){
+    setup1();
+    loop1();
+
+    
+    
+  }
+  else{ 
+    digitalWrite(ledPin,LOW);
+    
+  }
+   
+  
+}
+
+
+void setup1()
+{
+  pinMode(r1, OUTPUT);
+  pinMode(obstaclePin, INPUT);
+  Serial.begin(9600);  
+}
+void loop1() {
+  hasObstacle = digitalRead(obstaclePin);
+  if (hasObstacle == LOW)
+  {
+            relay1 = ~ relay1;
+            digitalWrite(r1,relay1);
+            delay(1000);
+   }
+ 
+  delay(100);
+}
+    
+    
+  
