@@ -1,0 +1,26 @@
+//Calculate sum of non-prime index values in array
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        System.out.println(sumofnonprimeindex(arr,n));
+	}
+    static int sumofnonprimeindex(int[] arr,int n){
+	    int s=0;
+	    for(int i=0;i<n;i++){
+	        if((i==2)||(i==3)||(i==5)||(i==7)){
+	            continue;
+	        }
+	        else{
+	            s+=arr[i];
+	        }
+	    }
+	    return s;
+	}
+}
